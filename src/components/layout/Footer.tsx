@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
               <div className="flex items-center justify-center bg-blue-600 w-8 h-8 rounded-md text-white mr-2">
                 <Brain className="w-5 h-5" />
               </div>
-              <span className="text-xl font-bold text-white">MindWell</span>
+              <span className="text-xl font-light text-white">MindFull AI</span>
             </div>
             <p className="mt-4 text-gray-400 text-sm">
               Empowering you on your mental health journey through accessible resources, professional support, and self-care tools.
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
         
         <div className="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} MindWell. All rights reserved.
+            &copy; {new Date().getFullYear()} MindFull AI. All rights reserved.
           </p>
           <p className="text-sm text-gray-400 mt-2 md:mt-0 flex items-center">
             Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> for mental well-being

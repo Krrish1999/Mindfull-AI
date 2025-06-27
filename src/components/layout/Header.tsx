@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, UserCircle, LogOut, Brain, CreditCard, DollarSign, Search, Bell } from 'lucide-react';
+import { Menu, X, UserCircle, Brain, CreditCard, DollarSign, Search, Bell } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuthStore } from '../../store/authStore';
 import { useTherapistStore } from '../../store/therapistStore';
@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
               <div className="flex items-center justify-center bg-white w-8 h-8 rounded-md text-gray-800 mr-3">
                 <Brain className="w-5 h-5" />
               </div>
-              <span className="text-xl font-bold text-white">Mindful AI</span>
+              <span className="text-xl  font-light text-white">Mindfull AI</span>
             </Link>
           </div>
           
@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                className={`px-2 flex items-center py-2 text-sm font-medium rounded-md transition-colors ${
                   location.pathname === item.path
                     ? 'text-white bg-gray-700'
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -103,7 +103,7 @@ export const Header: React.FC = () => {
                   {user.avatar_url ? (
                     <img 
                       src={user.avatar_url} 
-                      alt={user.full_name} 
+                      alt={`${user.full_name}'s avatar`}
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
@@ -112,6 +112,12 @@ export const Header: React.FC = () => {
                         {user.full_name?.charAt(0) || 'U'}
                       </span>
                     </div>
+                  )}
+                  <span className="ml-2">{user.full_name}</span>
+                  {user.role === 'therapist' && (
+                    <span className="ml-2 px-2 py-0.5 text-xs bg-green-900/30 text-green-400 border border-green-600/30 rounded-full">
+                      Therapist
+                    </span>
                   )}
                 </Link>
               </>
@@ -174,16 +180,6 @@ export const Header: React.FC = () => {
                   <UserCircle className="w-5 h-5 mr-2" />
                   Profile
                 </Link>
-                <button 
-                  className="flex w-full items-center px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
-                  onClick={() => {
-                    handleLogout();
-                    closeMenu();
-                  }}
-                >
-                  <LogOut className="w-5 h-5 mr-2" />
-                  Logout
-                </button>
               </>
             ) : (
               <>
