@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, UserCircle, LogOut, Brain, CreditCard, DollarSign } from 'lucide-react';
+import { Menu, X, UserCircle, LogOut, Brain, CreditCard, DollarSign, Search, Bell } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useAuthStore } from '../../store/authStore';
 import { useTherapistStore } from '../../store/therapistStore';
@@ -28,25 +28,23 @@ export const Header: React.FC = () => {
     if (!user) return [];
     
     const commonItems = [
-      { label: 'Therapists', path: '/therapists' },
       { label: 'Resources', path: '/resources' },
-      { label: 'Messages', path: '/messages' },
-      { label: 'Payments', path: '/payment-history' },
+      { label: 'Community', path: '/community' },
+      { label: 'About', path: '/about' },
     ];
     
     if (user.role === 'therapist') {
       return [
-        { label: 'Doctor Dashboard', path: '/doctor-dashboard' },
-        { label: 'Earnings', path: '/earnings' },
+        { label: 'Home', path: '/doctor-dashboard' },
         ...commonItems,
+        { label: 'Messages', path: '/messages' },
+        { label: 'Earnings', path: '/earnings' },
       ];
     } else {
       return [
-        { label: 'Dashboard', path: '/dashboard' },
-        { label: 'Journal', path: '/journal' },
-        { label: 'AI Chat', path: '/ai-chat' },
-        { label: 'Subscriptions', path: '/subscriptions' },
+        { label: 'Home', path: '/dashboard' },
         ...commonItems,
+        { label: 'Messages', path: '/messages' },
       ];
     }
   };
@@ -62,10 +60,10 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="flex items-center justify-center bg-blue-600 w-8 h-8 rounded-md text-white mr-2">
+              <div className="flex items-center justify-center bg-white w-8 h-8 rounded-md text-gray-800 mr-3">
                 <Brain className="w-5 h-5" />
               </div>
-              <span className="text-xl font-bold text-white">MindWell</span>
+              <span className="text-xl font-bold text-white">Mindful AI</span>
             </Link>
           </div>
           
@@ -77,7 +75,7 @@ export const Header: React.FC = () => {
                 to={item.path}
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                   location.pathname === item.path
-                    ? 'text-blue-400 bg-gray-700'
+                    ? 'text-white bg-gray-700'
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}
               >
@@ -86,9 +84,21 @@ export const Header: React.FC = () => {
             ))}
           </nav>
           
-          <div className="hidden md:flex items-center">
-            {user ? (
-              <div className="flex items-center space-x-4">
+          {/* Search and user section */}
+          <div className="hidden md:flex items-center space-x-4">
+            {user && (
+              <>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="bg-gray-700 text-gray-300 placeholder-gray-400 rounded-lg px-4 py-2 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+                  />
+                  <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
+                </div>
+                <button className="text-gray-300 hover:text-white transition-colors">
+                  <Bell className="w-5 h-5" />
+                </button>
                 <Link to="/profile" className="flex items-center text-gray-300 hover:text-white transition-colors">
                   {user.avatar_url ? (
                     <img 
@@ -97,25 +107,17 @@ export const Header: React.FC = () => {
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <UserCircle className="w-8 h-8" />
-                  )}
-                  <span className="ml-2">{user.full_name}</span>
-                  {user.role === 'therapist' && (
-                    <span className="ml-2 px-2 py-0.5 text-xs bg-green-900/30 text-green-400 border border-green-600/30 rounded-full">
-                      Therapist
-                    </span>
+                    <div className="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center">
+                      <span className="text-sm font-medium text-white">
+                        {user.full_name?.charAt(0) || 'U'}
+                      </span>
+                    </div>
                   )}
                 </Link>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={handleLogout}
-                  icon={<LogOut className="w-4 h-4" />}
-                >
-                  Logout
-                </Button>
-              </div>
-            ) : (
+              </>
+            )}
+            
+            {!user && (
               <div className="flex space-x-4">
                 <Button variant="outline" onClick={() => navigate('/login')}>
                   Sign In
@@ -153,7 +155,7 @@ export const Header: React.FC = () => {
                 to={item.path}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   location.pathname === item.path
-                    ? 'text-blue-400 bg-gray-700'
+                    ? 'text-white bg-gray-700'
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}
                 onClick={closeMenu}
