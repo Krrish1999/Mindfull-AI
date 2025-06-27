@@ -222,7 +222,7 @@ export const ProfilePage: React.FC = () => {
               <div className="mt-8 w-full">
                 <Button
                   fullWidth
-                  variant="ghost"
+                  variant="danger"                  
                   icon={<LogOut className="w-4 h-4" />}
                   onClick={handleLogout}
                 >
