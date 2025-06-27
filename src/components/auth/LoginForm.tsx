@@ -60,10 +60,10 @@ export const LoginForm: React.FC = () => {
   
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="bg-white p-8 rounded-lg shadow-md">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-md">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
-          <p className="text-gray-600 mt-2">Sign in to your MindWell account</p>
+          <h1 className="text-2xl font-bold text-gray-100">Welcome Back</h1>
+          <p className="text-gray-100 mt-2">Sign in to your MindFull account</p>
         </div>
         
         {displayError && (
@@ -116,13 +116,13 @@ export const LoginForm: React.FC = () => {
                 type="checkbox"
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
-              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-700">
+              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-100">
                 Remember me
               </label>
             </div>
             
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+              <a href="#" className="font-medium text-blue-500 hover:text-blue-300">
                 Forgot your password?
               </a>
             </div>
@@ -140,7 +140,7 @@ export const LoginForm: React.FC = () => {
           <div className="text-center mt-4">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
-              <Link to="/signup" className="font-medium text-blue-600 hover:text-blue-500">
+              <Link to="/signup" className="font-medium text-blue-500 hover:text-blue-300">
                 Sign up
               </Link>
             </p>

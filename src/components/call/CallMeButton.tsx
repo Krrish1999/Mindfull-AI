@@ -186,7 +186,7 @@ export const CallMeButton: React.FC = () => {
         ) : (
           <>
             <Phone className="w-4 h-4" />
-            <span>📞 Call Me</span>
+            <span>Call Me</span>
           </>
         )}
       </Button>

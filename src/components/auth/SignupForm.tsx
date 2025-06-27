@@ -101,10 +101,10 @@ export const SignupForm: React.FC = () => {
   
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="bg-white p-8 rounded-lg shadow-md">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-md">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Create an Account</h1>
-          <p className="text-gray-600 mt-2">Join MindWell and start your wellness journey</p>
+          <h1 className="text-2xl font-bold text-gray-100">Welcome to Mindfull AI</h1>
+          <p className="text-gray-100 mt-2">Start your wellness journey</p>
         </div>
         
         {displayError && (
@@ -247,7 +247,7 @@ export const SignupForm: React.FC = () => {
             <div className="bg-blue-900/20 border border-blue-600/30 rounded-lg p-4">
               <div className="flex items-start">
                 <AlertCircle className="w-5 h-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-blue-300">
+                <div className="text-sm text-blue-200">
                   <p className="font-medium mb-1">Therapist Account Verification</p>
                   <p>Your account will require verification before you can access therapist features. You'll be contacted within 2-3 business days to complete the verification process.</p>
                 </div>
@@ -263,7 +263,7 @@ export const SignupForm: React.FC = () => {
               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               required
             />
-            <label htmlFor="agree_terms" className="ml-2 block text-sm text-gray-700">
+            <label htmlFor="agree_terms" className="ml-2 block text-sm text-gray-100">
               I agree to the{" "}
               <a href="/terms" className="text-blue-600 hover:text-blue-500">
                 Terms of Service
