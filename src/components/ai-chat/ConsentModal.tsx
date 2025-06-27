@@ -31,21 +31,21 @@ export const ConsentModal: React.FC<ConsentModalProps> = ({ onConsentGiven }) =>
           </ul>
         </div>
         
-        <div className="flex space-x-3">
+        <div className="flex  justify-between">
           <Button
             onClick={() => onConsentGiven(true)}
-            className="flex-1"
+            className="flex items-center text-white bg-blue-600 rounded-full p-2"
             icon={<Check className="w-4 h-4" />}
           >
-            Yes, Save History
+            Save History
           </Button>
           <Button
             onClick={() => onConsentGiven(false)}
             variant="outline"
-            className="flex-1"
+           className="flex items-center text-white bg-blue-600 rounded-full p-2 px-3"
             icon={<X className="w-4 h-4" />}
           >
-            No, Don't Save
+           Don't Save
           </Button>
         </div>
         

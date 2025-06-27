@@ -10,7 +10,7 @@ type InputProps = {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, helperText, error, icon, fullWidth = false, className = '', ...props }, ref) => {
-    const baseInputClasses = "rounded-md border py-2 px-3 shadow-sm focus:outline-none focus:ring-1 bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500";
+    const baseInputClasses = "rounded-md border py-2 px-3 shadow-sm focus:outline-none focus:ring-1 bg-gray-800 border-gray-400 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500";
     const errorInputClasses = "border-red-500 focus:border-red-500 focus:ring-red-500";
     const widthClass = fullWidth ? "w-full" : "";
     const iconClass = icon ? "pl-10" : "";
@@ -51,5 +51,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-
 Input.displayName = 'Input';

@@ -60,12 +60,12 @@ export const JournalPage: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Journal</h1>
-          <p className="text-gray-600">Track your thoughts, feelings, and experiences</p>
+          <p className="text-gray-400">Track your thoughts, feelings, and experiences</p>
         </div>
         <Link to="/journal/new">
           <Button 
             icon={<PlusCircle className="w-4 h-4" />}
-            className="mt-4 md:mt-0"
+            className="mt-4 md:mt-0 text-white flex items-center bg-blue-600 p-2 rounded-lg"
           >
             New Entry
           </Button>
@@ -122,7 +122,7 @@ export const JournalPage: React.FC = () => {
                 </div>
                 
                 <div>
-                  <h3 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
+                  <h3 className="text-sm font-medium text-gray-300 mb-2 flex items-center">
                     <Calendar className="w-4 h-4 mr-1" /> Mood Filter
                   </h3>
                   <div className="flex space-x-3">
@@ -130,7 +130,7 @@ export const JournalPage: React.FC = () => {
                       <button
                         key={mood}
                         type="button"
-                        className={`p-2 rounded-full transition-colors ${
+                        className={` rounded-full transition-colors px-2 py-1 ${
                           selectedMood === mood
                             ? 'bg-blue-600 text-white'
                             : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
@@ -155,6 +155,7 @@ export const JournalPage: React.FC = () => {
                     variant="ghost" 
                     size="sm" 
                     onClick={clearFilters}
+                    className=" bg-whiteColor-translucent27 text-white hover:scale-[1.009]"
                   >
                     Clear Filters
                   </Button>

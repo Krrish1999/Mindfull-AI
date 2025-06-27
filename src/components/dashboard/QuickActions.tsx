@@ -11,7 +11,7 @@ export const QuickActions: React.FC = () => {
         <Link to="/ai-chat">
           <Button
             variant="primary"
-            className="font-semibold text-sm tracking-wide px-6 py-3 rounded-xl"
+            className="font-semibold text-sm tracking-wide px-6 py-3 flex items-center bg-blue-600 text-white rounded-xl"
             icon={<MessageCircle className="w-4 h-4" />}
           >
             Chat with AI Companion
@@ -20,7 +20,7 @@ export const QuickActions: React.FC = () => {
         <Link to="/journal/new">
           <Button
             variant="secondary"
-            className="font-semibold text-sm tracking-wide px-6 py-3 rounded-xl"
+            className="font-semibold text-sm tracking-wide flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl"
             icon={<BookOpen className="w-4 h-4" />}
           >
             New Journal Entry
@@ -29,7 +29,7 @@ export const QuickActions: React.FC = () => {
         <Link to="/resources">
           <Button
             variant="accent"
-            className="font-semibold text-sm tracking-wide px-6 py-3 rounded-xl"
+            className="font-semibold text-sm tracking-wide flex items-center bg-blue-600 text-white  px-6 py-3 rounded-xl"
           >
             Access Resources
           </Button>

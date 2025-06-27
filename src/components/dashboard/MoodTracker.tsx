@@ -407,7 +407,7 @@ export const MoodTracker: React.FC = () => {
             <Button 
               type="submit"
               variant="primary"
-              className="w-full py-4 font-bold text-base"
+              className="w-full py-4 font-bold text-white  rounded-lg text-md bg-blue-600"
               isLoading={isLoading}
               disabled={isLoading}
             >

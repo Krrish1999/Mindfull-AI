@@ -91,7 +91,7 @@ export const EarningsDashboardPage: React.FC = () => {
           </Button>
           <div>
             <h1 className="text-2xl font-bold text-white">Earnings Dashboard</h1>
-            <p className="text-gray-400">Track your therapy session earnings and payouts</p>
+            <p className="text-white">Track your therapy session earnings and payouts</p>
           </div>
         </div>
         <div className="flex space-x-3">
