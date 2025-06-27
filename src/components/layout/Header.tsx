@@ -27,24 +27,26 @@ export const Header: React.FC = () => {
   const getNavItems = () => {
     if (!user) return [];
     
-    const commonItems = [
+   const commonItems = [
+      { label: 'Therapists', path: '/therapists' },
       { label: 'Resources', path: '/resources' },
-      { label: 'Community', path: '/community' },
-      { label: 'About', path: '/about' },
+      { label: 'Messages', path: '/messages' },
+      { label: 'Payments', path: '/payment-history' },
     ];
     
     if (user.role === 'therapist') {
       return [
-        { label: 'Home', path: '/doctor-dashboard' },
-        ...commonItems,
-        { label: 'Messages', path: '/messages' },
+        { label: 'Doctor Dashboard', path: '/doctor-dashboard' },
         { label: 'Earnings', path: '/earnings' },
+        ...commonItems,
       ];
     } else {
       return [
-        { label: 'Home', path: '/dashboard' },
+        { label: 'Dashboard', path: '/dashboard' },
+        { label: 'Journal', path: '/journal' },
+        { label: 'AI Chat', path: '/ai-chat' },
+        { label: 'Subscriptions', path: '/subscriptions' },
         ...commonItems,
-        { label: 'Messages', path: '/messages' },
       ];
     }
   };
@@ -56,7 +58,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="bg-gray-800 shadow-dark-sm border-b border-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
