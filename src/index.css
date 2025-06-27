@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced button interactions */
+button, 
+.button,
+[role="button"],
+[type="button"],
+[type="submit"] {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover,
+.button:hover,
+[role="button"]:hover,
+[type="button"]:hover,
+[type="submit"]:hover {
+  transform: translateY(-1px);
+}
+
+button:active,
+.button:active,
+[role="button"]:active,
+[type="button"]:active,
+[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Smooth transitions for interactive elements */
+*[onclick],
+*[href],
+.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Improved focus states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Better text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
