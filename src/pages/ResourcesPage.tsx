@@ -70,11 +70,16 @@ export const ResourcesPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [filteredResources, setFilteredResources] = useState(latestResources);
 
   const tabs = ['All', 'Articles', 'Videos', 'Exercises'];
 
   useEffect(() => {
-    fetchResources();
+    // Try to fetch from Supabase but fall back to mock data
+    fetchResources().catch(() => {
+      console.log('Using mock data instead of Supabase');
+      setFilteredResources(latestResources);
+    });
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {
