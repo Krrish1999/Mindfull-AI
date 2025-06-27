@@ -85,9 +85,18 @@ export const ResourcesPage: React.FC = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      searchResources(searchTerm);
+      // Try Supabase search first, fall back to mock data filtering
+      searchResources(searchTerm).catch(() => {
+        const filtered = latestResources.filter(resource => 
+          resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          resource.description.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredResources(filtered);
+      });
     } else {
-      fetchResources();
+      fetchResources().catch(() => {
+        setFilteredResources(latestResources);
+      });
     }
   };
 
@@ -95,16 +104,27 @@ export const ResourcesPage: React.FC = () => {
     setActiveTab(tab);
     setCurrentPage(1);
     if (tab === 'All') {
-      fetchResources();
+      fetchResources().catch(() => {
+        setFilteredResources(latestResources);
+      });
     } else {
-      searchResources('', tab.toLowerCase());
+      // Filter mock data by type
+      const filtered = latestResources.filter(resource => 
+        resource.type.toLowerCase() === tab.toLowerCase().slice(0, -1) // Remove 's' from 'Articles', 'Videos'
+      );
+      setFilteredResources(filtered);
     }
   };
 
   const handleCategoryClick = (categoryName: string) => {
     setActiveTab(categoryName);
     setCurrentPage(1);
-    searchResources('', categoryName.toLowerCase());
+    // Filter mock data by category
+    const filtered = latestResources.filter(resource => 
+      resource.type.toLowerCase() === categoryName.toLowerCase().slice(0, -1) ||
+      categoryName === 'All'
+    );
+    setFilteredResources(filtered);
   };
 
   return (
