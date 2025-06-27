@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
 import { TextArea } from '../components/ui/TextArea';
 import { PhoneNumberInput } from '../components/ui/PhoneNumberInput';
 import { Button } from '../components/ui/Button';
 import { useAuthStore } from '../store/authStore';
-import { User, Mail, Lock, Camera, Save, AlertTriangle, Phone, Shield, UserCircle } from 'lucide-react';
+import { User, Mail, Lock, Camera, Save, AlertTriangle, Phone, Shield, UserCircle, LogOut } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 type ProfileFormValues = {
@@ -26,7 +26,7 @@ type PasswordFormValues = {
 };
 
 export const ProfilePage: React.FC = () => {
-  const { user, fetchUser } = useAuthStore();
+  const { user, fetchUser, logout } = useAuthStore();
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateError, setUpdateError] = useState<string | null>(null);
   const [updateSuccess, setUpdateSuccess] = useState(false);
@@ -36,6 +36,7 @@ export const ProfilePage: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState(user?.phone_number || '');
   const [phoneError, setPhoneError] = useState<string | null>(null);
   const [consentGiven, setConsentGiven] = useState(user?.consent_given || false);
+  const navigate = useNavigate();
   
   const { 
     register: registerProfile, 
@@ -139,6 +140,11 @@ export const ProfilePage: React.FC = () => {
     }
   };
   
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
+  };
+
   if (!user) {
     return (
       <div className="flex items-center justify-center min-h-[50vh]">
@@ -211,6 +217,18 @@ export const ProfilePage: React.FC = () => {
                   </Link>
                 </div>
               )}
+
+              {/* Logout Button */}
+              <div className="mt-8 w-full">
+                <Button
+                  fullWidth
+                  variant="ghost"
+                  icon={<LogOut className="w-4 h-4" />}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -266,7 +284,7 @@ export const ProfilePage: React.FC = () => {
                   label="Phone Number"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
-                  error={phoneError}
+                  error={phoneError || ""}
                   disabled={isUpdating}
                   placeholder="Enter your phone number"
                 />
