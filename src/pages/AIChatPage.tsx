@@ -87,7 +87,7 @@ export const AIChatPage: React.FC = () => {
             size="sm"
             icon={<ArrowLeft className="w-4 h-4" />}
             onClick={() => navigate('/dashboard')}
-            className="mr-4 text-gray-400 hover:text-white"
+            className="mr-4 text-gray-400 rounded-full  flex items-center hover:text-white"
           >
             Back
           </Button>
