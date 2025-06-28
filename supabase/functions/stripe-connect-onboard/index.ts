@@ -1,3 +1,6 @@
+// If running in Deno, ensure you have the correct permissions and Deno version.
+// If running in Node.js, use the 'serve' function from 'http' or 'express' instead.
+
 import { serve } from 'https://deno.land/std@0.177.0/http/server.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 import Stripe from 'https://esm.sh/stripe@14.15.0';
@@ -14,8 +17,8 @@ serve(async (req) => {
 
   try {
     const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      Deno.env.get('VITE_SUPABASE_URL') ?? '',
+      Deno.env.get('VITE_SUPABASE_ANON_KEY') ?? '',
       {
         global: {
           headers: { Authorization: req.headers.get('Authorization')! },
