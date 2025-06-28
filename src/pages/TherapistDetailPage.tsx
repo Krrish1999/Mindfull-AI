@@ -72,10 +72,10 @@ export const TherapistDetailPage: React.FC = () => {
   if (error || !currentTherapist) {
     return (
       <div className="max-w-4xl mx-auto text-center py-10">
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+        <h2 className="text-xl font-semibold text-gray-100 mb-2">
           {error || "Therapist not found"}
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-100 mb-6">
           We couldn't find the therapist you're looking for.
         </p>
         <Button onClick={() => navigate('/therapists')}>
@@ -110,7 +110,7 @@ export const TherapistDetailPage: React.FC = () => {
           <div className="p-6 md:p-8 md:w-2/3">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">
+                <h1 className="text-3xl font-bold text-gray-100">
                   Dr. {currentTherapist.user_id}
                 </h1>
                 <div className="flex items-center mt-2">
@@ -123,7 +123,7 @@ export const TherapistDetailPage: React.FC = () => {
                       />
                     ))}
                   </div>
-                  <span className="ml-2 text-gray-600">
+                  <span className="ml-2 text-gray-100">
                     {currentTherapist.rating.toFixed(1)} ({Math.floor(Math.random() * 100) + 50} reviews)
                   </span>
                 </div>
@@ -178,41 +178,41 @@ export const TherapistDetailPage: React.FC = () => {
 
       <div className="grid md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">About Dr. {currentTherapist.user_id}</h2>
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-            <p className="text-gray-700 mb-4">
+          <h2 className="text-xl font-bold text-gray-100 mb-4">About Dr. {currentTherapist.user_id}</h2>
+          <div className="bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+            <p className="text-gray-100 mb-4">
               With over {currentTherapist.experience_years} years of experience, Dr. {currentTherapist.user_id} specializes in 
               {currentTherapist.specialization.join(', ')}. 
               They are committed to creating a safe, supportive environment where clients can explore their challenges and develop effective coping strategies.
             </p>
-            <p className="text-gray-700">
+            <p className="text-gray-100">
               Their therapeutic approach is collaborative and tailored to each individual's unique needs and goals. 
               Dr. {currentTherapist.user_id} believes in empowering clients with the tools and insights needed for lasting positive change.
             </p>
           </div>
 
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Education & Credentials</h2>
+          <h2 className="text-xl font-bold text-gray-100 mb-4">Education & Credentials</h2>
           <Card>
             <CardContent className="p-6 space-y-4">
               <div>
-                <h3 className="font-medium text-gray-900 mb-2">Education</h3>
+                <h3 className="font-medium text-gray-100 mb-2">Education</h3>
                 <ul className="space-y-2">
                   {currentTherapist.education.map((edu, index) => (
                     <li key={index} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>{edu}</span>
+                      <span className='text-gray-100'>{edu}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               
               <div>
-                <h3 className="font-medium text-gray-900 mb-2">Certifications & Licenses</h3>
+                <h3 className="font-medium text-gray-100 mb-2">Certifications & Licenses</h3>
                 <ul className="space-y-2">
                   {currentTherapist.certifications.map((cert, index) => (
                     <li key={index} className="flex items-start">
                       <Award className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>{cert}</span>
+                      <span className='text-gray-100'>{cert}</span>
                     </li>
                   ))}
                 </ul>
@@ -222,16 +222,16 @@ export const TherapistDetailPage: React.FC = () => {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Book a Session</h2>
+          <h2 className="text-xl font-bold text-gray-100 mb-4">Book a Session</h2>
           <Card>
             <CardContent className="p-6">
               <div className="mb-6">
-                <h3 className="font-medium text-gray-900 mb-3">Select a date</h3>
+                <h3 className="font-medium text-gray-100 mb-3">Select a date</h3>
                 <div className="grid grid-cols-5 gap-2">
                   {availableDates.map((date, index) => (
                     <button
                       key={index}
-                      className={`p-3 rounded-lg border text-center transition-colors ${
+                      className={`p-3 rounded-lg border text-center text-gray-100 transition-colors ${
                         selectedDate === date.toISOString().split('T')[0]
                           ? 'bg-blue-600 text-white border-blue-600'
                           : 'border-gray-300 hover:border-blue-400'
@@ -251,12 +251,12 @@ export const TherapistDetailPage: React.FC = () => {
               
               {selectedDate && (
                 <div className="mb-6">
-                  <h3 className="font-medium text-gray-900 mb-3">Select a time</h3>
+                  <h3 className="font-medium text-gray-100 mb-3">Select a time</h3>
                   <div className="grid grid-cols-3 gap-2">
                     {availableTimes.map((time, index) => (
                       <button
                         key={index}
-                        className={`p-2 rounded-lg border text-center transition-colors ${
+                        className={`p-2 rounded-lg border text-center text-gray-100 transition-colors ${
                           selectedTime === time
                             ? 'bg-blue-600 text-white border-blue-600'
                             : 'border-gray-300 hover:border-blue-400'
@@ -271,18 +271,18 @@ export const TherapistDetailPage: React.FC = () => {
               )}
               
               <div className="mb-6">
-                <h3 className="font-medium text-gray-900 mb-2">Session details</h3>
+                <h3 className="font-medium text-gray-100 mb-2">Session details</h3>
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="flex justify-between py-2">
-                    <span className="text-gray-600">Session type</span>
+                    <span className="text-gray-700">Session type</span>
                     <span className="font-medium">Video consultation</span>
                   </div>
                   <div className="flex justify-between py-2 border-t border-gray-200">
-                    <span className="text-gray-600">Duration</span>
+                    <span className="text-gray-700">Duration</span>
                     <span className="font-medium">50 minutes</span>
                   </div>
                   <div className="flex justify-between py-2 border-t border-gray-200">
-                    <span className="text-gray-600">Fee</span>
+                    <span className="text-gray-700">Fee</span>
                     <span className="font-medium">${currentTherapist.rate_per_hour}</span>
                   </div>
                 </div>
@@ -292,6 +292,12 @@ export const TherapistDetailPage: React.FC = () => {
                 fullWidth
                 disabled={!selectedDate || !selectedTime}
                 icon={<Calendar className="w-5 h-5" />}
+                onClick={() => {
+                  if (selectedDate && selectedTime) {
+                    // Navigate to the booking/payment page, passing therapist id, date, and time
+                    navigate(`/book/${currentTherapist.id}?date=${selectedDate}&time=${encodeURIComponent(selectedTime)}`);
+                  }
+                }}
               >
                 Confirm Booking
               </Button>

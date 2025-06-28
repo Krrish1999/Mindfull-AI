@@ -305,13 +305,13 @@ export const BookAppointmentPage: React.FC = () => {
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-gray-400">Time:</span>
+                          <span className="text-gray-100">Time:</span>
                           <span className="text-white">
                             {format(new Date(`2000-01-01T${selectedTime}`), 'h:mm a')}
                           </span>
                         </div>
                         <div className="flex justify-between font-medium border-t border-gray-600 pt-2">
-                          <span className="text-gray-400">Total:</span>
+                          <span className="text-gray-900">Total:</span>
                           <span className="text-white">
                             {user?.free_session_credit && selectedService.type === 'one_time' 
                               ? 'FREE' 
