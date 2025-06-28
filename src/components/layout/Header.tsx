@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
           </div>
           
           {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-7">
             {user && navItems.map((item) => (
               <Link
                 key={item.path}
