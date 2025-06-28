@@ -62,7 +62,7 @@ export const TherapistCard: React.FC<TherapistCardProps> = ({ therapist }) => {
             />
           </div>
           <div className="ml-4 flex-1">
-            <h3 className="text-lg font-medium text-gray-900">Dr. {therapist.user_id}</h3>
+            <h3 className="text-lg font-medium text-gray-100">Dr. {therapist.user_id}</h3>
             <div className="flex items-center mt-1">
               <div className="flex items-center text-yellow-500">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -73,9 +73,9 @@ export const TherapistCard: React.FC<TherapistCardProps> = ({ therapist }) => {
                   />
                 ))}
               </div>
-              <span className="ml-1 text-sm text-gray-500">{therapist.rating.toFixed(1)}</span>
+              <span className="ml-1 text-sm text-gray-100">{therapist.rating.toFixed(1)}</span>
             </div>
-            <p className="text-sm text-gray-600 mt-1">{therapist.experience_years} years of experience</p>
+            <p className="text-sm text-gray-100 mt-1">{therapist.experience_years} years of experience</p>
           </div>
         </div>
         
@@ -87,17 +87,17 @@ export const TherapistCard: React.FC<TherapistCardProps> = ({ therapist }) => {
               </span>
             ))}
           </div>
-          <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+          <p className="text-sm text-gray-100 line-clamp-3 mb-4">
             {therapist.description || "A compassionate therapist dedicated to helping clients achieve better mental health through evidence-based techniques and personalized care."}
           </p>
           {isLoading ? (
             <div className="h-5 bg-gray-200 rounded w-24 animate-pulse"></div>
           ) : lowestPriceService ? (
-            <p className="text-sm text-gray-800 font-medium">
+            <p className="text-sm text-gray-100 font-medium">
               From {formatPriceFromDollars(lowestPriceService.price_amount)}/session
             </p>
           ) : (
-            <p className="text-sm text-gray-800 font-medium">
+            <p className="text-sm text-gray-100 font-medium">
               ${therapist.rate_per_hour}/hour
             </p>
           )}

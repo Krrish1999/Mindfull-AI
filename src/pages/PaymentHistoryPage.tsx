@@ -72,9 +72,9 @@ export const PaymentHistoryPage: React.FC = () => {
           <Button
             variant="ghost"
             size="sm"
-            icon={<ArrowLeft className="w-4 h-4" />}
+            icon={<ArrowLeft className="w-4 h-4 bg-transparent" />}
             onClick={() => navigate('/dashboard')}
-            className="mr-4 text-gray-400 hover:text-white"
+            className="mr-4 text-gray-400 flex items-center hover:text-white"
           >
             Back
           </Button>

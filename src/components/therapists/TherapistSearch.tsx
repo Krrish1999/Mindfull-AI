@@ -46,7 +46,7 @@ export const TherapistSearch: React.FC<TherapistSearchProps> = ({ onSearch, isLo
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+    <div className="bg-gray-700 rounded-lg shadow-sm p-4 mb-6">
       <form onSubmit={handleSearch}>
         <div className="flex items-center space-x-2">
           <div className="flex-1">
